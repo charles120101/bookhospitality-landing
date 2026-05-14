@@ -238,13 +238,13 @@
 
     /* Glass floating card — decorative */
     .hero-float-card {
-      position: absolute; right: 7%; bottom: 14%;
-      width: 220px;
+      position: absolute; right: 5%; bottom: 12%;
+      width: 380px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
       backdrop-filter: blur(20px);
       border-radius: var(--radius);
-      padding: 20px 22px;
+      padding: 22px 24px;
       animation: floatCard 5s ease-in-out infinite;
     }
     @keyframes floatCard {
@@ -252,14 +252,29 @@
       50%       { transform: translateY(-10px); }
     }
     .hero-float-card-label {
-      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 10px;
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 14px;
     }
+    .hero-float-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .hero-float-stat {
+      padding: 0 12px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-float-stat:first-child { padding-left: 0; }
+    .hero-float-stat:last-child { border-right: none; }
     .hero-float-card-value {
-      font-family: var(--font-serif); font-size: 1.5rem;
-      font-weight: 700; color: var(--white); margin-bottom: 4px;
+      font-family: var(--font-serif); font-size: 1.6rem;
+      font-weight: 700; color: var(--coral); margin-bottom: 6px;
+      line-height: 1;
     }
-    .hero-float-card-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+    .hero-float-card-sub {
+      font-size: 0.7rem; color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
     .hero-float-dot {
       position: absolute; top: -5px; right: -5px;
       width: 10px; height: 10px; background: var(--coral);
@@ -1023,9 +1038,21 @@
     <!-- Floating decorative card -->
     <div class="hero-float-card" aria-hidden="true">
       <div class="hero-float-dot"></div>
-      <p class="hero-float-card-label">Activité commerciale</p>
-      <p class="hero-float-card-value">+12</p>
-      <p class="hero-float-card-sub">RDV Corporate / mois</p>
+      <p class="hero-float-card-label">Nos résultats</p>
+      <div class="hero-float-stats">
+        <div class="hero-float-stat">
+          <p class="hero-float-card-value">70h</p>
+          <p class="hero-float-card-sub">gagnées par mois en prospection</p>
+        </div>
+        <div class="hero-float-stat">
+          <p class="hero-float-card-value">800K</p>
+          <p class="hero-float-card-sub">CA corporate généré sur 24 mois</p>
+        </div>
+        <div class="hero-float-stat">
+          <p class="hero-float-card-value">+9 pts</p>
+          <p class="hero-float-card-sub">de taux corporate en établissement</p>
+        </div>
+      </div>
     </div>
 
     <div class="container">
