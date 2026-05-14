@@ -159,15 +159,21 @@
       max-width: 1160px; margin: 0 auto; padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo-img-wrap { display: flex; align-items: center; }
-    .nav-logo-img {
-      height: 36px;
-      width: auto;
-      object-fit: contain;
-      display: block;
+    .nav-logo-text {
+      display: flex; align-items: baseline; gap: 5px; text-decoration: none;
+    }
+    .nav-logo-word {
+      font-family: var(--font-serif); font-size: 1.25rem;
+      font-weight: 700; color: var(--white); letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .nav-logo-word-accent {
+      font-family: var(--font-serif); font-size: 1.25rem;
+      font-weight: 400; font-style: italic; color: var(--coral);
+      letter-spacing: -0.01em; line-height: 1;
     }
     @media (max-width: 768px) {
-      .nav-logo-img { height: 28px; }
+      .nav-logo-word, .nav-logo-word-accent { font-size: 1.1rem; }
     }
 
     .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
@@ -236,7 +242,7 @@
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
     }
 
-    /* Glass floating card — decorative */
+    /* Glass floating card - decorative */
     .hero-float-card {
       position: absolute; right: 5%; bottom: 12%;
       width: 380px;
@@ -520,7 +526,7 @@
     /* ── Clients / Logos ── */
     .clients { background: var(--apple-grey); padding-bottom: 0; }
 
-    .clients-header { margin-bottom: 56px; }
+    .clients-header { margin-bottom: 28px; }
 
     .logos-track-wrap {
       position: relative;
@@ -655,7 +661,7 @@
     }
 
     /* ══════════════════════════════════════════════════
-       5. ABOUT — QUOTE + PHOTO
+       5. ABOUT - QUOTE + PHOTO
     ══════════════════════════════════════════════════ */
     .about { background: var(--white); }
 
@@ -910,7 +916,7 @@
     /* ══════════════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════════════ */
-    /* ══ RESPONSIVE — TABLET ══ */
+    /* ══ RESPONSIVE - TABLET ══ */
     @media (max-width: 1024px) {
       .solution-grid, .about-layout, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .offer-wrap { grid-template-columns: 1fr; }
@@ -920,7 +926,7 @@
       .solution-panel { display: none; }
     }
 
-    /* ══ RESPONSIVE — MOBILE (iPhone 17 : 393px) ══ */
+    /* ══ RESPONSIVE - MOBILE (iPhone 17 : 393px) ══ */
     @media (max-width: 768px) {
       /* Base */
       .section { padding: 60px 0; }
@@ -935,7 +941,7 @@
       .hamburger { display: flex; }
 
       /* Hero */
-      .hero { min-height: 100svh; padding-top: 70px; align-items: flex-start; padding-bottom: 80px; }
+      .hero { min-height: 100svh; padding-top: 70px; align-items: flex-start; padding-bottom: 40px; }
       .hero-h1 { font-size: 2rem; line-height: 1.15; }
       .hero-sub { font-size: 1rem; margin-bottom: 32px; }
       .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
@@ -955,6 +961,40 @@
       .how-steps { grid-template-columns: 1fr; gap: 14px; }
       .how-step { padding: 28px 24px 24px; }
       .how-step-bg-num { font-size: 6rem; right: -8px; bottom: -16px; }
+      /* Timeline mobile pour How it works */
+      .how-steps { gap: 0; position: relative; }
+      .how-steps::before {
+        content: ''; position: absolute; left: 28px; top: 0; bottom: 0;
+        width: 2px; background: var(--apple-mid); z-index: 0;
+      }
+      .how-step {
+        display: flex; gap: 18px; padding: 20px 18px;
+        background: transparent; border: none; border-radius: 0;
+        border-bottom: 1px solid var(--apple-mid);
+        align-items: flex-start; position: relative;
+      }
+      .how-step:last-child { border-bottom: none; }
+      .how-step:hover { transform: none; box-shadow: none; }
+      .how-step-num-wrap {
+        flex-shrink: 0; width: 40px; height: 40px;
+        background: var(--white); border: 2px solid var(--apple-mid);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        position: relative; z-index: 1;
+      }
+      .how-step-num { font-size: 0.85rem; }
+      .how-step-body { flex: 1; }
+      .how-step-bg-num { display: none; }
+      .how-step-icon { display: none; }
+
+      /* Problem cards horizontal */
+      .problem-card {
+        display: flex; align-items: flex-start; gap: 16px;
+        padding: 20px 18px;
+      }
+      .problem-icon {
+        flex-shrink: 0; margin-bottom: 0;
+      }
+      .problem-body { flex: 1; }
 
       /* Clients */
       .clients { padding-bottom: 0; }
@@ -988,7 +1028,7 @@
       .footer-mail { justify-content: center; }
     }
 
-    /* ══ RESPONSIVE — SMALL (iPhone SE, 375px) ══ */
+    /* ══ RESPONSIVE - SMALL (iPhone SE, 375px) ══ */
     @media (max-width: 390px) {
       .hero-h1 { font-size: 1.75rem; }
       .section-title { font-size: 1.55rem; }
@@ -1002,8 +1042,8 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo-img-wrap">
-        <img src="Logo Landing.png" alt="Book Hospitality" class="nav-logo-img" />
+      <a href="#hero" class="nav-logo-text">
+        <span class="nav-logo-word">Book</span><span class="nav-logo-word-accent">Hospitality</span>
       </a>
       <ul class="nav-links">
         <li><a href="#probleme">Le défi</a></li>
@@ -1214,7 +1254,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       5. ABOUT — QUOTE + PHOTO
+       5. ABOUT - QUOTE + PHOTO
   ═══════════════════════════════════════════════ -->
   <section class="section about" id="propos">
     <div class="container">
@@ -1281,11 +1321,9 @@
   ═══════════════════════════════════════════════ -->
   <section class="section clients" id="clients">
     <div class="container">
-      <div class="clients-header reveal">
+      <div class="clients-header reveal" style="text-align:center;">
         <p class="eyebrow">Ils nous ont fait confiance</p>
-        <h2 class="section-title">Plus de 50 entreprises nous ont fait confiance.</h2>
-        <div class="rule"></div>
-        <p class="section-sub">Des grands comptes aux ETI, des marques de luxe aux acteurs de l'assurance — une diversité de secteurs qui témoigne de la confiance placée dans notre approche.</p>
+        <p style="font-size:1rem; color:var(--text-2); max-width:480px; margin:0 auto;">Plus de 50 entreprises nous ont fait confiance, des grands comptes aux ETI.</p>
       </div>
     </div>
 
@@ -1395,15 +1433,15 @@
               <span class="chip-dot"></span>
               Nous répondons sous 24h.
             </div>
-            <a href="mailto:cesoumanou@bookhospitality.fr" class="contact-email-link">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              cesoumanou@bookhospitality.fr
-            </a>
           </div>
         </div>
 
         <div>
           <form class="form reveal d1" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="WEBFORMS_KEY_TO_REPLACE" />
+            <input type="hidden" name="subject" value="Nouveau contact - Book Hospitality" />
+            <input type="hidden" name="from_name" value="Book Hospitality Landing" />
+            <input type="hidden" name="redirect" value="false" />
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="nom">Nom *</label>
@@ -1421,8 +1459,8 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="message">Message <span style="font-weight:400;color:var(--text-2)">(optionnel)</span></label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez brièvement votre situation et vos objectifs…"></textarea>
+              <label class="form-label" for="message">Message *</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez brièvement votre situation et vos objectifs…" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-navy form-submit">
@@ -1454,9 +1492,9 @@
           <p class="footer-tagline">Votre force commerciale externalisée</p>
         </div>
         <div class="footer-right">
-          <a href="mailto:cesoumanou@bookhospitality.fr" class="footer-mail">
+          <a href="#contact" class="footer-mail" style="text-decoration:none;">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            cesoumanou@bookhospitality.fr
+            Nous contacter
           </a>
           <p class="footer-copy">© 2025 Book Hospitality · Tous droits réservés</p>
         </div>
@@ -1491,30 +1529,33 @@
 
     // ── Logos tooltip & click ──
     const tooltip = document.getElementById('logoTooltip');
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     document.querySelectorAll('.logo-item').forEach(item => {
-      item.addEventListener('mouseenter', e => {
-        tooltip.textContent = item.dataset.name;
-        tooltip.classList.add('show');
-      });
-      item.addEventListener('mousemove', e => {
-        tooltip.style.left = e.clientX + 'px';
-        tooltip.style.top  = (e.clientY - 44) + 'px';
-      });
-      item.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
-      item.addEventListener('click', () => {
-        item.classList.remove('pop');
-        void item.offsetWidth;
-        item.classList.add('pop');
-        item.addEventListener('animationend', () => item.classList.remove('pop'), { once: true });
-      });
+      if (!isTouch) {
+        item.addEventListener('mouseenter', () => {
+          tooltip.textContent = item.dataset.name;
+          tooltip.classList.add('show');
+        });
+        item.addEventListener('mousemove', e => {
+          tooltip.style.left = e.clientX + 'px';
+          tooltip.style.top  = (e.clientY - 44) + 'px';
+        });
+        item.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+        item.addEventListener('click', () => {
+          item.classList.remove('pop');
+          void item.offsetWidth;
+          item.classList.add('pop');
+          item.addEventListener('animationend', () => item.classList.remove('pop'), { once: true });
+        });
+      }
     });
 
     // ── Form ──
     const form    = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const fields = [form.nom, form.etablissement, form.email];
+      const fields = [form.nom, form.etablissement, form.email, form.message];
       let valid = true;
       fields.forEach(f => {
         f.classList.remove('error');
@@ -1523,10 +1564,29 @@
       if (!valid) return;
       const submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true; submitBtn.textContent = 'Envoi…';
-      setTimeout(() => { form.style.display='none'; success.classList.add('show'); }, 700);
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data
+        });
+        const json = await res.json();
+        if (json.success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Envoyer <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+          alert('Erreur lors de l\'envoi. Merci de réessayer.');
+        }
+      } catch(err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+        alert('Erreur réseau. Merci de réessayer.');
+      }
     });
     // Remove error on input
-    form.querySelectorAll('.form-input').forEach(f => f.addEventListener('input', () => f.classList.remove('error')));
+    form.querySelectorAll('.form-input, .form-textarea').forEach(f => f.addEventListener('input', () => f.classList.remove('error')));
   </script>
 </body>
 </html>
