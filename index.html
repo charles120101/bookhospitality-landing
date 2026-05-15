@@ -221,6 +221,14 @@
       min-height: 100vh; display: flex; align-items: center;
       position: relative; overflow: hidden; padding-top: 80px;
     }
+    .hero-bg-photo {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('Photo Landing.jpg');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.18;
+      mix-blend-mode: luminosity;
+    }
 
     /* Soft radial glows */
     .hero-glow-1 {
@@ -1071,6 +1079,7 @@
        1. HERO
   ═══════════════════════════════════════════════ -->
   <section class="hero" id="hero">
+    <div class="hero-bg-photo" aria-hidden="true"></div>
     <div class="hero-glow-1" aria-hidden="true"></div>
     <div class="hero-glow-2" aria-hidden="true"></div>
     <div class="hero-dots"  aria-hidden="true"></div>
